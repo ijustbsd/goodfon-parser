@@ -24,11 +24,11 @@ def get_page_count(url):
     return int(soup.find(class_='pageinfo').find('div').contents[0])
 
 
-def get_images_data(category_url, max_pages=10):
+def get_images_data(category_url, offset=1, max_pages=10):
     '''
     Список ссылок и тегов на картинки из определённой категории.
     '''
-    pages_numbers = range(1, max_pages + 1)
+    pages_numbers = range(offset, max_pages + 1)
     pages_urls = [category_url + 'index-{}.html'.format(i) for i in pages_numbers]
     links = []
     tags = []
